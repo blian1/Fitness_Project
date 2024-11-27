@@ -8,6 +8,6 @@ data class DailyCalorieGoal(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val email: String,
     val date: String, // Date
-    val intake: Double, // Everyday recommend intake
-    val burn: Double // Everyday recommend burned
+    val intake: Float, // Everyday recommend intake
+    val burn: Float // Everyday recommend burned
 )

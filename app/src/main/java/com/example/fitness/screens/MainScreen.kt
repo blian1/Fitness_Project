@@ -24,11 +24,11 @@ fun MainScreen(email: String) {
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) { HomeScreen(email = email) } // 传递 email 参数
+            composable(Screen.Home.route) { HomeScreen(email = email) }
             composable(Screen.Fitness.route) { FitnessScreen() }
             composable(Screen.Diet.route) { DietScreen() }
             composable(Screen.AIHelper.route) { AIScreen() }
-            composable(Screen.Calendar.route) { CalendarScreen() }
+            composable(Screen.Calendar.route) { CalendarScreen(email = email) }
         }
     }
 }

@@ -13,5 +13,5 @@ interface DailyCalorieGoalDao {
     fun getDailyCalorieGoalByDate(email: String, date: String): DailyCalorieGoal?
 
     @Query("DELETE FROM daily_calorie_goals WHERE email = :email AND date = :date")
-    fun deleteDailyCalorieGoalByDate(email: String, date: String)
+    fun deleteDailyCalorieGoalByDate(email: String, date: String): Int
 }

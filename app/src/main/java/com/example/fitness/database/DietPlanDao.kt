@@ -7,11 +7,12 @@ import androidx.room.Query
 @Dao
 interface DietPlanDao {
     @Insert
-    fun insertDietPlan(plan: DietPlan): Long
+    fun insertDietPlan(vararg dietPlans: DietPlan): List<Long>
 
     @Query("SELECT * FROM diet_plans WHERE email = :email AND date = :date")
     fun getDietPlansByDate(email: String, date: String): List<DietPlan>
 
     @Query("DELETE FROM diet_plans WHERE email = :email AND date = :date")
-    fun deleteDietPlansByDate(email: String, date: String)
+    fun deleteDietPlansByDate(email: String, date: String): Int
 }
+
