@@ -48,11 +48,10 @@ suspend fun generateDailyPlan(
                 - Goal: $goal 
                 
                 Generate:
-                1. Recommended daily calorie intake and burn values.
+                1. Based on the following user details recommended daily calorie intake and burn values.
                 2. A fitness plan for the day, including warmup, strength training, cardio, and stretching (if needed).
                 3. A diet plan for the day, including breakfast, lunch, dinner, and optional snacks.
-                4.Ensure the calorie intake is below the daily maintenance level for weight loss.
-                5.Ensure "calorie_goal" is always an object with "intakeCalories" and "burnCalories" as keys, both being integers.
+                4.Ensure "calorie_goal" is always an object with "intakeCalories" and "burnCalories" as keys, both being integers.
                 
                 Return a JSON object with the following structure:
                 {

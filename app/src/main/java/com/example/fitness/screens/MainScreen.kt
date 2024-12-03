@@ -24,7 +24,9 @@ fun MainScreen(email: String) {
             startDestination = Screen.Home.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable(Screen.Home.route) { HomeScreen(email = email) }
+            composable(Screen.Home.route) {
+                HomeScreen(email = email, navController = navController)
+            }
             composable(Screen.Fitness.route) { FitnessScreen() }
             composable(Screen.Diet.route) { DietScreen() }
             composable(Screen.AIHelper.route) { AIScreen() }
@@ -32,3 +34,4 @@ fun MainScreen(email: String) {
         }
     }
 }
+

@@ -43,6 +43,10 @@ interface UserDao {
         goal: String,
         bmi: Float
     ): Int
+
+    @Query("SELECT * FROM users")
+    fun getAllUsers(): List<User>
+
 }
 
 

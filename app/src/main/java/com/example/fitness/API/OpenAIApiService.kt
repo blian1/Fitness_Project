@@ -29,7 +29,7 @@ data class Choice(
 )
 
 interface OpenAIApiService {
-    @Headers("Content-Type: application/json", "Authorization: Bearer ")
+    @Headers("Content-Type: application/json", "Authorization: Bearer sk-dEjgYbzid-UUeaVPPuAwgt7spG_l_86L8Ovw0mtXZJT3BlbkFJdhqTCgGwpHpcl2WqjVOPlTyGdD0Foa8B4TMSxEXSIA")
     @POST("v1/chat/completions")
     suspend fun getPlan(@Body request: ChatGPTRequest): ChatGPTResponse
 

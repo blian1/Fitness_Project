@@ -2,6 +2,7 @@ package com.example.fitness.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.firebase.firestore.PropertyName
 
 /**
  * Represents a user entity in the database.
@@ -14,14 +15,30 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "users")
 data class User(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0, // Unique identifier for each user record
-    val email: String, // User's email address
-    val password: String, // User's password (should be encrypted)
-    val name: String? = null, // User's full name
-    val age: Int? = null, // User's age
-    val height: Float? = null, // User's height in meters
-    val weight: Float? = null, // User's weight in kilograms
-    val goal: String? = null, // User's fitness goal ("gain muscle" or "lose weight")
-    val bmi: Float? = null // Calculated Body Mass Index
-)
+    @get:PropertyName("id") @set:PropertyName("id")
+    var id: Int = 0, // Unique identifier for each user record
 
+    @get:PropertyName("email") @set:PropertyName("email")
+    var email: String, // User's email address
+
+    @get:PropertyName("password") @set:PropertyName("password")
+    var password: String, // User's password (should be encrypted)
+
+    @get:PropertyName("name") @set:PropertyName("name")
+    var name: String? = null, // User's full name
+
+    @get:PropertyName("age") @set:PropertyName("age")
+    var age: Int? = null, // User's age
+
+    @get:PropertyName("height") @set:PropertyName("height")
+    var height: Float? = null, // User's height in meters
+
+    @get:PropertyName("weight") @set:PropertyName("weight")
+    var weight: Float? = null, // User's weight in kilograms
+
+    @get:PropertyName("goal") @set:PropertyName("goal")
+    var goal: String? = null, // User's fitness goal ("gain muscle" or "lose weight")
+
+    @get:PropertyName("bmi") @set:PropertyName("bmi")
+    var bmi: Float? = null // Calculated Body Mass Index
+)

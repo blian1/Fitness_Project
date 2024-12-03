@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.fitness.database.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @Composable
-fun HomeScreen(email: String) {
+fun HomeScreen(email: String, navController: NavHostController) {
     val context = LocalContext.current
     val db = AppDatabase.getDatabase(context)
     val scope = rememberCoroutineScope()
@@ -63,11 +64,28 @@ fun HomeScreen(email: String) {
             item { Text(text = "Loading...", style = MaterialTheme.typography.headlineMedium) }
         } else if (user != null) {
             item {
-                Text(
-                    text = "Welcome! ${user?.name ?: "Guest"}",
-                    style = MaterialTheme.typography.headlineMedium
-                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Welcome! ${user?.name ?: "Guest"}",
+                        style = MaterialTheme.typography.headlineMedium
+                    )
+                    Button(onClick = {
+                        navController.navigate("auth") {
+                            popUpTo(navController.graph.startDestinationId) { inclusive = true }
+                        }
+                    }) {
+                        Text(text = "Logout")
+                    }
+                }
+
                 Spacer(modifier = Modifier.height(16.dp))
+
                 Text(
                     text = "Weight: ${user?.weight ?: "N/A"} KG",
                     style = MaterialTheme.typography.bodyLarge
@@ -129,7 +147,6 @@ fun HomeScreen(email: String) {
                         style = MaterialTheme.typography.bodyLarge
                     )
                     Spacer(modifier = Modifier.height(16.dp))
-
                 }
             }
         } else {
@@ -137,6 +154,7 @@ fun HomeScreen(email: String) {
         }
     }
 }
+
 
 
 

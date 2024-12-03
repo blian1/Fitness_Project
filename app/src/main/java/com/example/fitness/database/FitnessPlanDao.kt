@@ -14,5 +14,9 @@ interface FitnessPlanDao {
 
     @Query("DELETE FROM fitness_plans WHERE email = :email AND date = :date")
     fun deleteFitnessPlansByDate(email: String, date: String): Int
+
+    @Query("SELECT * FROM fitness_plans")
+    fun getAllFitnessPlans(): List<FitnessPlan>
+
 }
 

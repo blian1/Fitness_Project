@@ -15,53 +15,39 @@ import com.example.fitness.screens.ProfileInputScreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.compose.runtime.LaunchedEffect
+
 
 @Composable
 fun Navigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "auth") {
         composable("auth") {
-            val scope = rememberCoroutineScope()
-            val context = LocalContext.current
-            val db = AppDatabase.getDatabase(context).userDao()
-
             AuthScreen(
                 onLoginSuccess = { email ->
-                    scope.launch {
-                        val emailString = email as? String
-                        if (emailString != null) {
-                            // Check if the profile is complete
-                            if (isProfileComplete(emailString, db)) {
-                                // Navigate to HomeScreen
-                                navController.navigate("home/$emailString") {
-                                    popUpTo("auth") { inclusive = true } // Clear stack
-                                }
-                            } else {
-                                // Navigate to ProfileInputScreen
-                                navController.navigate("profileInput/$emailString")
-                            }
-                        }
+                    navController.navigate("main/$email") {
+                        popUpTo("auth") { inclusive = true }
+                    }
+                },
+                onProfileInput = { email ->
+                    navController.navigate("profileInput/$email") {
+                        popUpTo("auth") { inclusive = true }
                     }
                 },
                 navController = navController
             )
         }
-
-        // HomeScreen with user's email
-        composable("home/{email}") { backStackEntry ->
+        composable("main/{email}") { backStackEntry ->
             val email = backStackEntry.arguments?.getString("email")
             if (!email.isNullOrEmpty()) {
-                MainScreen(email) // Pass email to MainScreen
+                MainScreen(email = email)
             }
         }
-
-        // ProfileInputScreen for entering user details
         composable("profileInput/{email}") { backStackEntry ->
             val email = backStackEntry.arguments?.getString("email")
             if (!email.isNullOrEmpty()) {
-                ProfileInputScreen(email) {
-                    // Navigate to HomeScreen after saving profile
-                    navController.navigate("home/$email") {
-                        popUpTo("auth") { inclusive = true } // Clear stack
+                ProfileInputScreen(email = email) {
+                    navController.navigate("main/$email") {
+                        popUpTo("auth") { inclusive = true }
                     }
                 }
             }
@@ -78,5 +64,7 @@ suspend fun isProfileComplete(email: String, db: UserDao): Boolean {
     // Profile is considered complete if height and weight are not null
     return user?.height != null && user.weight != null
 }
+
+
 
 

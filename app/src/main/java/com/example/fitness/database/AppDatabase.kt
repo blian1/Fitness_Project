@@ -30,6 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun dietPlanDao(): DietPlanDao
     abstract fun dailyCalorieGoalDao(): DailyCalorieGoalDao
 
+
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
