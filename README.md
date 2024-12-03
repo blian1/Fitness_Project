@@ -56,7 +56,7 @@ com.example.fitness/
 
 1. Clone the repository:
    ```bash
-   git clone <[repository-url](https://github.com/blian1/Fitness_Project.git)>
+   git clone <(https://github.com/blian1/Fitness_Project.git)>
    ```
 2. Open the project in Android Studio.
 3. Replace the API keys (details in the next section).
@@ -69,7 +69,7 @@ com.example.fitness/
 
 ### OpenAI GPT API
 
-1. Go to the [OpenAI API website](https://platform.openai.com/signup/).
+1. Go to the [OpenAI API website(https://platform.openai.com/signup/).
 2. Sign up or log in to your account.
 3. Navigate to the API Keys section and create a new API key.
 4. Copy the generated API key.
