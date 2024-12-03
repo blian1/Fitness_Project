@@ -13,6 +13,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
+/**
+ * FitnessScreen composable displays the user's calorie tracking and macronutrient goals.
+ * It also provides a placeholder for exercise records when no data is available.
+ */
 @Composable
 fun FitnessScreen() {
     Column(

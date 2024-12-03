@@ -25,6 +25,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * Composable function for the authentication screen.
+ * This screen allows users to log in or register using email/password or Google Sign-In.
+ *
+ * @param onLoginSuccess Callback triggered when the login is successful.
+ * @param onProfileInput Callback triggered when the user needs to input their profile information.
+ * @param navController Navigation controller for managing navigation between screens.
+ */
 @Composable
 fun AuthScreen(
     onLoginSuccess: (String) -> Unit,
@@ -134,6 +142,9 @@ fun AuthScreen(
     }
 }
 
+/**
+ * Handles the logic for login or registration based on the input state.
+ */
 private suspend fun handleAuthAction(
     isLogin: Boolean,
     email: String,
@@ -178,6 +189,9 @@ private suspend fun handleAuthAction(
     }
 }
 
+/**
+ * Handles the logic for login or registration based on the input state.
+ */
 private suspend fun handleGoogleSignIn(
     account: GoogleSignInAccount?,
     db: UserDao,
@@ -204,6 +218,9 @@ private suspend fun handleGoogleSignIn(
     }
 }
 
+/**
+ * Checks if the user's profile is complete by verifying if height and weight are populated.
+ */
 suspend fun isProfileComplete(email: String, db: UserDao): Boolean {
     val user = withContext(Dispatchers.IO) { db.getUserByEmail(email) }
     return user?.height != null && user.weight != null

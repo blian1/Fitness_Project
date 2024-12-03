@@ -12,6 +12,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
+/**
+ * DietScreen composable displays the user's calorie intake, exercise consumption,
+ * remaining calorie intake, and macronutrient goals. It also includes a placeholder
+ * when there are no diet records logged.
+ */
 @Composable
 fun DietScreen() {
     Column(

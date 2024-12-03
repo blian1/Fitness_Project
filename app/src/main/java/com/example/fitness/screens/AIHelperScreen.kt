@@ -25,6 +25,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import kotlinx.coroutines.launch
 
+/**
+ * AIScreen composable provides a simple chat interface where users can interact with an AI assistant.
+ *
+ * @param navController Optional navigation controller to manage screen navigation.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AIScreen(navController: NavHostController? = null) {

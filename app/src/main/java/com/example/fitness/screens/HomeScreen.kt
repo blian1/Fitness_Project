@@ -21,6 +21,12 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * The HomeScreen composable displays the user's basic information and today's fitness and diet plans.
+ *
+ * @param email The email of the logged-in user to fetch their data from the database.
+ * @param navController The navigation controller to handle screen transitions.
+ */
 @Composable
 fun HomeScreen(email: String, navController: NavHostController) {
     val context = LocalContext.current

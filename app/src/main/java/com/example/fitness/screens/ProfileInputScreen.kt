@@ -15,6 +15,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * A composable screen for user profile input. It collects the user's personal details
+ * such as name, age, height, weight, and fitness goal, and saves the data to the database.
+ *
+ * @param email The email of the user whose profile is being updated.
+ * @param onProfileSaved A callback function to navigate to the next screen after the profile is saved successfully.
+ */
 @Composable
 fun ProfileInputScreen(email: String, onProfileSaved: () -> Unit) {
     val context = LocalContext.current

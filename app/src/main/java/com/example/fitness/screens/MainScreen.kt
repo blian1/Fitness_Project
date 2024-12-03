@@ -11,8 +11,15 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fitness.components.BottomNavBar
 import com.example.fitness.screens.*
 
+/**
+ * MainScreen composable function that serves as the entry point for the app's navigation.
+ * It includes a Scaffold layout with a bottom navigation bar and handles navigation between screens.
+ *
+ * @param email The email of the currently logged-in user, passed to relevant screens as needed.
+ */
 @Composable
 fun MainScreen(email: String) {
+    // Create a NavController to manage app navigation
     val navController = rememberNavController()
 
     Scaffold(

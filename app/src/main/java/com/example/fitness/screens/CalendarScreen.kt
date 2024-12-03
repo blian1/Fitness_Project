@@ -18,6 +18,12 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * The CalendarScreen composable displays today's fitness and diet plans.
+ * It allows users to view existing plans or generate new ones.
+ *
+ * @param email The email of the logged-in user to fetch and manage their plans.
+ */
 @Composable
 fun CalendarScreen(email: String) {
     val context = LocalContext.current
