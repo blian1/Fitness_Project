@@ -56,7 +56,7 @@ com.example.fitness/
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone <[repository-url](https://github.com/blian1/Fitness_Project.git)>
    ```
 2. Open the project in Android Studio.
 3. Replace the API keys (details in the next section).
