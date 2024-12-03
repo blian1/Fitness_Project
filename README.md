@@ -1,140 +1,103 @@
-AI Fitness Assistant App
+# AI Fitness Assistant App
 
-Overview
+The AI Fitness Assistant is a mobile application designed to help users achieve their fitness goals by providing personalized fitness plans, diet plans, and real-time AI assistance.
 
-The AI Fitness Assistant App is a mobile application designed to help users track their fitness goals, create personalized fitness and diet plans, and monitor daily progress. The app leverages advanced AI features for recommendations and insights, ensuring a tailored fitness journey for each user.
+---
 
-Key Features:
+## Features
 
-User Profile Management: Users can input and manage their personal information such as age, weight, height, and fitness goals.
+- **Personalized Fitness Plans**: Users can input their details (age, height, weight, goal) to generate customized fitness and diet plans.
+- **Diet Tracking**: Log calorie intake and track macronutrients (carbs, protein, fat).
+- **AI Chat Assistant**: Provides instant answers to fitness-related queries.
+- **Calendar View**: Displays daily plans and past records.
 
-Fitness Tracking: Track calorie burn, intake, and remaining calories based on user activities.
 
-Diet Planning: Create and monitor personalized diet plans, including calorie and macronutrient goals.
+---
 
-AI Assistance: Interactive AI-powered assistant for fitness tips and queries.
+## Project Structure
 
-Data Visualization: Graphical insights into progress using detailed charts.
-
-Project Folder Structure
-
+```plaintext
 com.example.fitness/
-├── auth/            # User authentication logic and API integrations.
-├── data/            # Handles data retrieval and storage.
-│   ├── api/         # APIs for retrieving data.
-│   └── models/      # Data classes and structures.
-├── ui/              # Components for UI and screens.
-│   ├── components/  # Reusable UI elements.
-│   ├── screens/     # Individual pages of the app.
-│   └── activities/  # Non-MainActivity activities.
-└── utils/           # Utility classes and functions.
+├── auth/                  # Authentication logic
+├── data/                  # Data models and database access
+│   ├── api/               # API-related classes
+│   └── models/            # Data models
+├── ui/                    # UI components and screens
+│   ├── activities/        # Android activities
+│   ├── components/        # Reusable UI components
+│   ├── screens/           # Screens for different features
+├── utils/                 # Utility classes and functions
+└── README.md              # Documentation
+```
 
-Folder Details
+### Folders and their Purpose
 
-auth/: Handles user authentication, including sign-in and sign-up functionalities.
+- **auth/**: Handles user authentication, including sign-in and sign-up functionalities.
+- **data/**: Manages the application data and includes models and API-related classes.
+  - **api/**: Contains API integrations and logic for external data.
+  - **models/**: Data classes representing app entities like `User`, `FitnessPlan`, and `DietPlan`.
+- **ui/**: Contains all UI components and screens.
+  - **activities/**: Contains app activities (e.g., main activity).
+  - **components/**: Reusable content blocks like navigation bars and cards.
+  - **screens/**: Individual screens for the app, such as Home, Fitness, and Calendar.
+- **utils/**: Contains helper functions and common utilities.
 
-data/api/: Includes the API interface and methods for handling API calls.
+---
 
-data/models/: Contains data models for user profiles, fitness plans, diet plans, and API responses.
+## How to Run the App
 
-ui/components/: Includes reusable UI components such as buttons and dialogs.
+### Prerequisites
 
-ui/screens/: Houses screens like Home, Fitness, Diet, AI Assistant, and Calendar.
+1. **Android Studio**: Ensure you have Android Studio installed on your system.
+2. **API Keys**: The app integrates with OpenAI GPT API. Obtain your API key following the steps below.
+3. **Emulator/Device**: A compatible Android emulator or physical device for testing.
 
-utils/: Contains helper classes for functions like date formatting and API key management.
+### Steps to Run
 
-UI Screens
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Open the project in Android Studio.
+3. Replace the API keys (details in the next section).
+4. Sync the project with Gradle.
+5. Run the app on an emulator or physical device.
 
-HomeScreen: Displays user profile information and daily plans.
+---
 
-FitnessScreen: Tracks calorie burn, intake, and macronutrient goals.
+## Setting Up API Keys
 
-DietScreen: Logs and displays daily diet plans and macronutrient tracking.
+### OpenAI GPT API
 
-AIScreen: Interactive chat interface for AI-powered fitness assistance.
+1. Go to the [OpenAI API website](https://platform.openai.com/signup/).
+2. Sign up or log in to your account.
+3. Navigate to the API Keys section and create a new API key.
+4. Copy the generated API key.
+5. In the project, locate the `OpenAIApiServices` file and replace `Authorization: Bearer YOUR API KEY` with your API key:
 
-CalendarScreen: Generates and displays daily fitness and diet plans.
 
-Prerequisites
 
-To run this application, ensure the following are set up on your system:
+## Accessibility
 
-Requirements:
+The app has been tested with accessibility tools, such as the Accessibility Scanner. Suggestions are being addressed iteratively to improve the user experience.
 
-Android Studio (latest version)
+---
 
-Minimum API level 21 (Android 5.0 Lollipop)
+## API Integrations
 
-Internet connection
+- **OpenAI GPT API**: Provides AI chat responses.
 
-How to Run the Application
+---
 
-Clone the Repository:
+## UI Screens
 
-git clone https://github.com/your-repository/ai-fitness-assistant.git
-cd ai-fitness-assistant
+- **HomeScreen**: Displays user profile and daily plans.
+- **FitnessScreen**: Tracks calorie burn, remaining calories, and macronutrients.
+- **DietScreen**: Manages calorie intake and macronutrient goals.
+- **AIScreen**: AI chat assistant for fitness-related queries.
+- **CalendarScreen**: Displays daily plans and historical data.
 
-Open in Android Studio:
+---
 
-Launch Android Studio.
 
-Open the project folder.
-
-Add API Keys:
-
-Navigate to res/values/strings.xml.
-
-Replace the placeholders for the API keys with your own keys.
-
-<string name="openai_api_key">YOUR_OPENAI_API_KEY</string>
-
-Run the App:
-
-Connect your Android device or use an emulator.
-
-Click on the green play button in Android Studio to build and run the app.
-
-API Key Registration
-
-OpenAI API
-
-Visit the OpenAI API.
-
-Sign up or log in to your OpenAI account.
-
-Navigate to the API keys section and generate a new API key.
-
-Replace the placeholder in strings.xml as shown above.
-
-Additional API Integrations (if applicable):
-
-Unsplash API for Images:
-
-Register at Unsplash Developers.
-
-Replace the placeholder key in the strings.xml file.
-
-Accessibility
-
-The app will be regularly tested and improved to enhance accessibility. It currently meets basic accessibility standards, but ongoing efforts will address all identified issues.
-
-Future Enhancements
-
-Integration with fitness devices (e.g., Fitbit, Apple Watch).
-
-Advanced AI analytics for more detailed fitness insights.
-
-Offline mode for tracking activities without an internet connection.
-
-Contributing
-
-Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
-
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-Contact
-
-For support or inquiries, please contact your-email@example.com.
 
