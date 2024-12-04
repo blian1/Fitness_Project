@@ -85,7 +85,7 @@ The app has been tested with accessibility tools, such as the Accessibility Scan
 
 ## API Integrations
 
-- **OpenAI GPT API**: Provides AI chat responses.
+- **OpenAI GPT API**: Provides AI chat response and daily plan.
 
 ---
 
